@@ -1,4 +1,5 @@
 import { Fieldset, TextInput, Button, Group } from '@mantine/core';
+import TodoTable from './TodoTable';
 
 const TodoList = () => {
   return (
@@ -9,6 +10,7 @@ const TodoList = () => {
           <Button>Submit</Button>
         </Group>
       </Fieldset>
+      <TodoTable></TodoTable>
     </>
   );
 };

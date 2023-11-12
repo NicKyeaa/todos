@@ -6,8 +6,8 @@ const elements = [
   { id: 2, text: 'Make a to do list app', done: false },
 ];
 
-const TodoTable = () => {
-  const rows = elements.map((element) => (
+const TodoTable = ({ dataTodos }) => {
+  const rows = dataTodos.map((element) => (
     <Table.Tr key={element.id}>
       <Table.Td>{element.id}</Table.Td>
       <Table.Td>{element.text}</Table.Td>

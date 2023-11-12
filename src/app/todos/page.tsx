@@ -12,10 +12,11 @@ async function fetchTodos() {
     { cache: 'no-store' }
   );
   console.log(res);
-  const dataTodos = res.json();
+  return res.json();
 }
 
 const TodoList = () => {
+  const dataTodos = fetchTodos();
   return (
     <>
       <Fieldset>

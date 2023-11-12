@@ -11,12 +11,14 @@ async function fetchTodos() {
     'https://mocki.io/v1/3ec7374f-d068-4cfa-8030-cc2d9d42a881',
     { cache: 'no-store' }
   );
-  console.log(res);
-  return res.json();
+  const data = await res.json();
+  return data;
 }
 
-const TodoList = () => {
-  const dataTodos = fetchTodos();
+const TodoList = async () => {
+  const dataTodos = await fetchTodos();
+  console.log(dataTodos);
+  console.log(typeof dataTodos);
   return (
     <>
       <Fieldset>

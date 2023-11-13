@@ -9,8 +9,8 @@ import { Table } from '@mantine/core';
 const TodoTable = ({ tableData }) => {
   console.log(tableData);
   const rows = tableData.map((el) => (
-    <Table.Tr key={el._id}>
-      <Table.Td>{el._id}</Table.Td>
+    <Table.Tr key={el.title}>
+      {/* <Table.Td>{el._id}</Table.Td> */}
       <Table.Td>{el.title}</Table.Td>
       <Table.Td>{el.longDescription}</Table.Td>
       <Table.Td>{el.done}</Table.Td>

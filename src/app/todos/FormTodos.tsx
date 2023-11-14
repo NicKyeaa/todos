@@ -3,17 +3,21 @@ import axios from 'axios';
 import { Fieldset, TextInput, Button, Group } from '@mantine/core';
 import { useForm } from '@mantine/form';
 
-const postTodo = async (values) => {
-  const result = await axios.post('loc');
-};
-
 const FormTodos = () => {
+  // Intializing the Form
   const form = useForm({
     initialValues: {
       title: '',
       longDescription: '',
     },
   });
+
+  // Function for posting the task
+  const postTodo = async (values) => {
+    console.log('Posting');
+    const result = await axios.post('http://localhost:3500/todos/post', values);
+    form.reset();
+  };
   return (
     <>
       <Fieldset>

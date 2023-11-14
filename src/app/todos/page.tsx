@@ -11,8 +11,6 @@ async function fetchTodos() {
 
 const TodoList = async () => {
   const dataTodos = await fetchTodos();
-  console.log(dataTodos);
-  console.log(typeof dataTodos);
   return (
     <>
       <Fieldset>

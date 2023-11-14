@@ -1,26 +1,36 @@
 'use client';
+import axios from 'axios';
 import { Fieldset, TextInput, Button, Group } from '@mantine/core';
 import { useForm } from '@mantine/form';
+
+const postTodo = async (values) => {
+  const result = await axios.post('loc');
+};
 
 const FormTodos = () => {
   const form = useForm({
     initialValues: {
-      task: '',
-      taskDescription: '',
+      title: '',
+      longDescription: '',
     },
   });
   return (
     <>
       <Fieldset>
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
+        <form
+          onSubmit={form.onSubmit((values) => {
+            console.log(values);
+            postTodo(values);
+          })}
+        >
           <Group>
             <TextInput
               placeholder='Add your task'
-              {...form.getInputProps('task')}
+              {...form.getInputProps('title')}
             />
             <TextInput
               placeholder='Add your task description'
-              {...form.getInputProps('taskDescription')}
+              {...form.getInputProps('longDescription')}
             />
             <Button type='submit'>Submit</Button>
           </Group>

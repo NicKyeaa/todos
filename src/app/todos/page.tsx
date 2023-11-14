@@ -1,5 +1,6 @@
 import { Fieldset, TextInput, Button, Group } from '@mantine/core';
 import TodoTable from './TodoTable';
+import FormTodos from './FormTodos';
 
 async function fetchTodos() {
   const res = await fetch('http://localhost:3500/todos', {
@@ -13,12 +14,7 @@ const TodoList = async () => {
   const dataTodos = await fetchTodos();
   return (
     <>
-      <Fieldset>
-        <Group>
-          <TextInput placeholder='Add your task' />
-          <Button>Submit</Button>
-        </Group>
-      </Fieldset>
+      <FormTodos />
       <TodoTable tableData={dataTodos}></TodoTable>
     </>
   );

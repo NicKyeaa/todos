@@ -1,17 +1,10 @@
 import { Fieldset, TextInput, Button, Group } from '@mantine/core';
+import { getAllTodos } from './api';
 import TodoTable from './TodoTable';
 import FormTodos from './FormTodos';
 
-async function fetchTodos() {
-  const res = await fetch('http://localhost:3500/todos', {
-    cache: 'no-store',
-  });
-  const data = await res.json();
-  return data;
-}
-
 const TodoList = async () => {
-  const dataTodos = await fetchTodos();
+  const dataTodos = await getAllTodos();
   return (
     <>
       <FormTodos />

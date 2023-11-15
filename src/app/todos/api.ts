@@ -1,3 +1,6 @@
+import { toDo } from '../../../types/todo';
+import axios from 'axios';
+
 const baseURL = 'http://localhost:3500';
 
 export const getAllTodos = async () => {
@@ -8,6 +11,6 @@ export const getAllTodos = async () => {
   return todos;
 };
 
-export const addToDo = async (toDo) => {
+export const addToDo = async (toDo: toDo) => {
   const result = await axios.post('http://localhost:3500/todos/post', toDo);
 };

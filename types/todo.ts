@@ -1,4 +1,4 @@
-export interface ITask {
+export interface toDo {
   title: string;
   longDescription: string;
 }

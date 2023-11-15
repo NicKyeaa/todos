@@ -12,6 +12,10 @@ export const getAllTodos = async () => {
 };
 
 export const addToDo = async (toDo: toDo) => {
-  const newTodo = await axios.post('http://localhost:3500/todos/post', toDo);
+  const newTodo = await axios.post(`${baseURL}/todos/post`, toDo);
   return newTodo;
+};
+
+export const deleteToDo = async (id: string) => {
+  await axios.delete(`${baseURL}/todos/${id}`);
 };

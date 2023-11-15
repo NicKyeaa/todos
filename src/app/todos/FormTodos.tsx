@@ -1,9 +1,14 @@
 'use client';
 import axios from 'axios';
+import { toDo } from '../../../types/todo';
+import { addToDo } from './api';
 import { Fieldset, TextInput, Button, Group } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useRouter } from 'next/navigation';
 
 const FormTodos = () => {
+  const router = useRouter();
+
   // Intializing the Form
   const form = useForm({
     initialValues: {
@@ -13,18 +18,18 @@ const FormTodos = () => {
   });
 
   // Function for posting the task
-  const postTodo = async (values) => {
-    console.log('Posting');
-    const result = await axios.post('http://localhost:3500/todos/post', values);
+  const handleSubmitNewToDo = async (newToDo: toDo) => {
+    await addToDo(newToDo);
     form.reset();
+    router.refresh();
   };
+
   return (
     <>
       <Fieldset>
         <form
           onSubmit={form.onSubmit((values) => {
-            console.log(values);
-            postTodo(values);
+            handleSubmitNewToDo(values);
           })}
         >
           <Group>

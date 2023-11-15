@@ -17,5 +17,6 @@ export const addToDo = async (toDo: toDo) => {
 };
 
 export const deleteToDo = async (id: string) => {
-  await axios.delete(`${baseURL}/todos/${id}`);
+  const result = await axios.delete(`${baseURL}/todos/${id}`);
+  return result;
 };

@@ -1,5 +1,6 @@
 'use client';
 import { Table } from '@mantine/core';
+import { toDo } from '../../../types/todo';
 
 // const elements = [
 //   { id: 1, text: 'Task number one', done: false },
@@ -9,8 +10,7 @@ import { Table } from '@mantine/core';
 const TodoTable = ({ tableData }) => {
   console.log(tableData);
   const rows = tableData.map((el) => (
-    <Table.Tr key={el.title}>
-      {/* <Table.Td>{el._id}</Table.Td> */}
+    <Table.Tr key={el._id}>
       <Table.Td>{el.title}</Table.Td>
       <Table.Td>{el.longDescription}</Table.Td>
       <Table.Td>{el.done}</Table.Td>

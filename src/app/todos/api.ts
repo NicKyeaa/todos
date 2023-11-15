@@ -7,3 +7,7 @@ export const getAllTodos = async () => {
   const todos = await res.json();
   return todos;
 };
+
+export const addToDo = async (toDo) => {
+  const result = await axios.post('http://localhost:3500/todos/post', toDo);
+};

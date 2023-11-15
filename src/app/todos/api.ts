@@ -12,5 +12,6 @@ export const getAllTodos = async () => {
 };
 
 export const addToDo = async (toDo: toDo) => {
-  const result = await axios.post('http://localhost:3500/todos/post', toDo);
+  const newTodo = await axios.post('http://localhost:3500/todos/post', toDo);
+  return newTodo;
 };

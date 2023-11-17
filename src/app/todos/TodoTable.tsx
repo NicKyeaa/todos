@@ -2,7 +2,7 @@
 import { Table } from '@mantine/core';
 import { toDo } from '../../../types/todo';
 import { ActionIcon } from '@mantine/core';
-import { IconEdit } from '@tabler/icons-react';
+import { IconTrash } from '@tabler/icons-react';
 import { deleteToDo } from './api';
 import { useRouter } from 'next/navigation';
 
@@ -23,8 +23,8 @@ const TodoTable = ({ tableData }) => {
       <Table.Td>{el.longDescription}</Table.Td>
       <Table.Td>{el.done}</Table.Td>
       <Table.Td>
-        <ActionIcon variant='default' onClick={handleDeleteToDo}>
-          <IconEdit></IconEdit>
+        <ActionIcon variant='default' onClick={() => handleDeleteToDo(el._id)}>
+          <IconTrash></IconTrash>
         </ActionIcon>
       </Table.Td>
     </Table.Tr>

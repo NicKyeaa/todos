@@ -2,8 +2,8 @@
 import { Table } from '@mantine/core';
 import { toDo } from '../../../types/todo';
 import { ActionIcon } from '@mantine/core';
-import { IconTrash } from '@tabler/icons-react';
-import { deleteToDo } from './api';
+import { IconTrash, IconEdit } from '@tabler/icons-react';
+import { deleteToDo, editToDo } from './api';
 import { useRouter } from 'next/navigation';
 
 const TodoTable = ({ tableData }) => {
@@ -25,6 +25,9 @@ const TodoTable = ({ tableData }) => {
       <Table.Td>
         <ActionIcon variant='default' onClick={() => handleDeleteToDo(el._id)}>
           <IconTrash></IconTrash>
+        </ActionIcon>
+        <ActionIcon variant='default' onClick={() => handleDeleteToDo(el._id)}>
+          <IconEdit></IconEdit>
         </ActionIcon>
       </Table.Td>
     </Table.Tr>

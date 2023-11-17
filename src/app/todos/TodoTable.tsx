@@ -1,5 +1,6 @@
 'use client';
 import { Table } from '@mantine/core';
+import { editModal } from './editModal';
 import { toDo } from '../../../types/todo';
 import { ActionIcon } from '@mantine/core';
 import { IconTrash, IconEdit } from '@tabler/icons-react';
@@ -16,6 +17,13 @@ const TodoTable = ({ tableData }) => {
     router.refresh();
   };
 
+  const handleEditToDo = async (id) => {
+    console.log(id);
+    const result = await editToDo(id);
+    console.log(result);
+    router.refresh();
+  };
+
   console.log(tableData);
   const rows = tableData.map((el) => (
     <Table.Tr key={el._id}>
@@ -26,7 +34,7 @@ const TodoTable = ({ tableData }) => {
         <ActionIcon variant='default' onClick={() => handleDeleteToDo(el._id)}>
           <IconTrash></IconTrash>
         </ActionIcon>
-        <ActionIcon variant='default' onClick={() => handleDeleteToDo(el._id)}>
+        <ActionIcon variant='default' onClick={() => handleEditToDo(el._id)}>
           <IconEdit></IconEdit>
         </ActionIcon>
       </Table.Td>

@@ -1,6 +1,6 @@
 'use client';
 import { Table } from '@mantine/core';
-import { EditModal } from './EditModal';
+import EditModal from './EditModal';
 import { toDo } from '../../../types/todo';
 import { ActionIcon } from '@mantine/core';
 import { IconTrash, IconEdit } from '@tabler/icons-react';
@@ -14,7 +14,6 @@ const TodoTable = ({ tableData }) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleDeleteToDo = async (id) => {
-    setModalOpen(true);
     console.log(id);
     const result = await deleteToDo(id);
     console.log(result);
@@ -22,10 +21,11 @@ const TodoTable = ({ tableData }) => {
   };
 
   const handleEditToDo = async (id) => {
+    setModalOpen(true);
     console.log(id);
-    const result = await editToDo(id);
-    console.log(result);
-    router.refresh();
+    // const result = await editToDo(id);
+    // console.log(result);
+    // router.refresh();
   };
 
   console.log(tableData);
@@ -41,7 +41,6 @@ const TodoTable = ({ tableData }) => {
         <ActionIcon variant='default' onClick={() => handleEditToDo(el._id)}>
           <IconEdit></IconEdit>
         </ActionIcon>
-        <EditModal isOpen={isModalOpen}></EditModal>
       </Table.Td>
     </Table.Tr>
   ));
@@ -50,6 +49,7 @@ const TodoTable = ({ tableData }) => {
     <>
       <Table>
         <Table.Tbody>{rows}</Table.Tbody>
+        <EditModal isOpen={isModalOpen}></EditModal>
       </Table>
     </>
   );

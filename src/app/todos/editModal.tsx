@@ -2,14 +2,14 @@
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 
-const EditModal = () => {
+const EditModal = ({ isOpen }) => {
   const [opened, { open, close }] = useDisclosure(false);
+
   return (
     <>
-      <Modal opened={opened} onClose={close} title='Authentication' centered>
+      <Modal opened={isOpen} onClose={close} title='Authentication' centered>
         <h1>Test</h1>
       </Modal>
-      <Button onClick={open}>Open centered Modal</Button>
     </>
   );
 };

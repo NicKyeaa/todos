@@ -7,9 +7,8 @@ const EditModal = () => {
   return (
     <>
       <Modal opened={opened} onClose={close} title='Authentication' centered>
-        {/* Modal content */}
+        <h1>Test</h1>
       </Modal>
-
       <Button onClick={open}>Open centered Modal</Button>
     </>
   );

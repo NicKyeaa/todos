@@ -6,11 +6,15 @@ import { ActionIcon } from '@mantine/core';
 import { IconTrash, IconEdit } from '@tabler/icons-react';
 import { deleteToDo, editToDo } from './api';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 const TodoTable = ({ tableData }) => {
   const router = useRouter();
 
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const handleDeleteToDo = async (id) => {
+    setModalOpen(true);
     console.log(id);
     const result = await deleteToDo(id);
     console.log(result);
@@ -37,6 +41,7 @@ const TodoTable = ({ tableData }) => {
         <ActionIcon variant='default' onClick={() => handleEditToDo(el._id)}>
           <IconEdit></IconEdit>
         </ActionIcon>
+        <EditModal isOpen={isModalOpen}></EditModal>
       </Table.Td>
     </Table.Tr>
   ));

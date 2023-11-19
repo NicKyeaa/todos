@@ -7,11 +7,19 @@ import { IconTrash, IconEdit } from '@tabler/icons-react';
 import { deleteToDo, editToDo } from './api';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useDisclosure } from '@mantine/hooks';
 
 const TodoTable = ({ tableData }) => {
   const router = useRouter();
 
+  // EditModal States
+  const [opened, { open, close }] = useDisclosure(false);
   const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    close();
+    console.log('Close Modal');
+  };
 
   const handleDeleteToDo = async (id) => {
     console.log(id);
@@ -21,8 +29,8 @@ const TodoTable = ({ tableData }) => {
   };
 
   const handleEditToDo = async (id) => {
-    setModalOpen(true);
-    console.log(id);
+    open();
+    console.log('Open Modal');
     // const result = await editToDo(id);
     // console.log(result);
     // router.refresh();
@@ -49,7 +57,7 @@ const TodoTable = ({ tableData }) => {
     <>
       <Table>
         <Table.Tbody>{rows}</Table.Tbody>
-        <EditModal isOpen={isModalOpen}></EditModal>
+        <EditModal isOpen={opened} onClose={handleCloseModal}></EditModal>
       </Table>
     </>
   );

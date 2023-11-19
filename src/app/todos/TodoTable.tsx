@@ -1,6 +1,6 @@
 'use client';
 import { Table } from '@mantine/core';
-import { editModal } from './editModal';
+import { EditModal } from './EditModal';
 import { toDo } from '../../../types/todo';
 import { ActionIcon } from '@mantine/core';
 import { IconTrash, IconEdit } from '@tabler/icons-react';

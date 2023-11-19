@@ -1,9 +1,8 @@
 'use client';
-import React from 'react';
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 
-const editModal = () => {
+const EditModal = () => {
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
@@ -16,4 +15,4 @@ const editModal = () => {
   );
 };
 
-export default editModal;
+export default EditModal;

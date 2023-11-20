@@ -14,7 +14,7 @@ const TodoTable = ({ tableData }) => {
 
   // EditModal States
   const [opened, { open, close }] = useDisclosure(false);
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedToDo, setSelectedToDo] = useState(null);
 
   const handleCloseModal = () => {
     close();
@@ -28,9 +28,9 @@ const TodoTable = ({ tableData }) => {
     router.refresh();
   };
 
-  const handleEditToDo = async (id) => {
+  const handleEditToDo = async (el) => {
+    setSelectedToDo(el);
     open();
-    console.log('Open Modal');
     // const result = await editToDo(id);
     // console.log(result);
     // router.refresh();
@@ -43,7 +43,7 @@ const TodoTable = ({ tableData }) => {
       <Table.Td>{el.longDescription}</Table.Td>
       <Table.Td>{el.done}</Table.Td>
       <Table.Td>
-        <ActionIcon variant='default' onClick={() => handleDeleteToDo(el._id)}>
+        <ActionIcon variant='default' onClick={() => handleDeleteToDo(el)}>
           <IconTrash></IconTrash>
         </ActionIcon>
         <ActionIcon variant='default' onClick={() => handleEditToDo(el._id)}>
@@ -57,7 +57,11 @@ const TodoTable = ({ tableData }) => {
     <>
       <Table>
         <Table.Tbody>{rows}</Table.Tbody>
-        <EditModal isOpen={opened} onClose={handleCloseModal}></EditModal>
+        <EditModal
+          isOpen={opened}
+          onClose={handleCloseModal}
+          itemId={selectedToDo}
+        ></EditModal>
       </Table>
     </>
   );

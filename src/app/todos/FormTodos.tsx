@@ -26,7 +26,7 @@ const FormTodos = () => {
 
   return (
     <>
-      <Fieldset>
+      <Fieldset legend='Todo'>
         <form
           onSubmit={form.onSubmit((values) => {
             handleSubmitNewToDo(values);

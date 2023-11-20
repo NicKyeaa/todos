@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 const EditModal = ({ isOpen, onClose, toDo }) => {
   const form = useForm({
     initialValues: {
-      title: toDo.title,
-      longDescription: toDo.longDescription,
+      title: '',
+      longDescription: '',
     },
   });
 
@@ -18,7 +18,7 @@ const EditModal = ({ isOpen, onClose, toDo }) => {
         longDescription: toDo.longDescription,
       });
     }
-  }, []);
+  }, [toDo]);
 
   const handleEditToDo = (values) => {};
 

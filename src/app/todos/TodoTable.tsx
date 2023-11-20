@@ -28,6 +28,10 @@ const TodoTable = ({ tableData }) => {
     router.refresh();
   };
 
+  const handleOnEdit = async (updatedToDo) => {
+    console.log(updatedToDo);
+  };
+
   const handleEditToDo = async (el) => {
     console.log(el);
     setSelectedToDo(el);
@@ -61,6 +65,7 @@ const TodoTable = ({ tableData }) => {
         <EditModal
           isOpen={opened}
           onClose={handleCloseModal}
+          onEdit={handleOnEdit}
           toDo={selectedToDo}
         ></EditModal>
       </Table>

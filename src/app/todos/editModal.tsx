@@ -3,7 +3,7 @@ import { Modal, Button, TextInput, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useState, useEffect } from 'react';
 
-const EditModal = ({ isOpen, onClose, toDo }) => {
+const EditModal = ({ isOpen, onClose, onEdit, toDo }) => {
   // const [editedData, setEditedData] = useState({
   //   title: toDo.title,
   //   longDescription: toDo.longDescription,
@@ -26,7 +26,14 @@ const EditModal = ({ isOpen, onClose, toDo }) => {
     }
   }, [toDo]);
 
-  const handleEditToDo = (values) => {};
+  const handleEditToDo = (values) => {
+    const updatedToDo = {
+      ...toDo,
+      title: values.title,
+      longDescription: values.longDescription,
+    };
+    onEdit(updatedToDo);
+  };
 
   return (
     <>

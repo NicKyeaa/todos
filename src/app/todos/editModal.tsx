@@ -1,5 +1,5 @@
 'use client';
-import { Modal, Button, TextInput, Group } from '@mantine/core';
+import { Modal, Button, TextInput, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { useEffect } from 'react';
 
@@ -30,7 +30,7 @@ const EditModal = ({ isOpen, onClose, toDo }) => {
             handleEditToDo(values);
           })}
         >
-          <Group>
+          <Stack>
             <TextInput
               placeholder='Edit the task title'
               {...form.getInputProps('title')}
@@ -40,7 +40,7 @@ const EditModal = ({ isOpen, onClose, toDo }) => {
               {...form.getInputProps('longDescription')}
             />
             <Button type='submit'>Submit</Button>
-          </Group>
+          </Stack>
         </form>
       </Modal>
     </>

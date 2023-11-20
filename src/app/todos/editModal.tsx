@@ -1,9 +1,15 @@
 'use client';
 import { Modal, Button, TextInput, Stack } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const EditModal = ({ isOpen, onClose, toDo }) => {
+  // const [editedData, setEditedData] = useState({
+  //   title: toDo.title,
+  //   longDescription: toDo.longDescription,
+  //   done: false,
+  // });
+
   const form = useForm({
     initialValues: {
       title: '',

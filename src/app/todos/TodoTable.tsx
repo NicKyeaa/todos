@@ -29,6 +29,7 @@ const TodoTable = ({ tableData }) => {
   };
 
   const handleEditToDo = async (el) => {
+    console.log(el);
     setSelectedToDo(el);
     open();
     // const result = await editToDo(id);
@@ -43,10 +44,10 @@ const TodoTable = ({ tableData }) => {
       <Table.Td>{el.longDescription}</Table.Td>
       <Table.Td>{el.done}</Table.Td>
       <Table.Td>
-        <ActionIcon variant='default' onClick={() => handleDeleteToDo(el)}>
+        <ActionIcon variant='default' onClick={() => handleDeleteToDo(el._id)}>
           <IconTrash></IconTrash>
         </ActionIcon>
-        <ActionIcon variant='default' onClick={() => handleEditToDo(el._id)}>
+        <ActionIcon variant='default' onClick={() => handleEditToDo(el)}>
           <IconEdit></IconEdit>
         </ActionIcon>
       </Table.Td>
@@ -60,7 +61,7 @@ const TodoTable = ({ tableData }) => {
         <EditModal
           isOpen={opened}
           onClose={handleCloseModal}
-          itemId={selectedToDo}
+          toDo={selectedToDo}
         ></EditModal>
       </Table>
     </>

@@ -29,8 +29,10 @@ const TodoTable = ({ tableData }) => {
   };
 
   const handleOnEdit = async (updatedToDo) => {
-    const result = await editToDo(updatedToDo._id);
+    const result = await editToDo(updatedToDo._id, updatedToDo);
     console.log(result);
+    close();
+    router.refresh();
   };
 
   const handleEditToDo = async (el) => {

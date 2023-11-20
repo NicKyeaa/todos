@@ -1,6 +1,7 @@
 'use client';
 import { Modal, Button, TextInput, Group } from '@mantine/core';
 import { useForm } from '@mantine/form';
+import { useEffect } from 'react';
 
 const EditModal = ({ isOpen, onClose, toDo }) => {
   const form = useForm({
@@ -10,12 +11,20 @@ const EditModal = ({ isOpen, onClose, toDo }) => {
     },
   });
 
+  useEffect(() => {
+    if (toDo) {
+      form.setValues({
+        title: toDo.title,
+        longDescription: toDo.longDescription,
+      });
+    }
+  }, []);
+
   const handleEditToDo = (values) => {};
 
   return (
     <>
       <Modal opened={isOpen} onClose={onClose} title='Edit ToDo' centered>
-        <h1>{toDo.title}</h1>
         <form
           onSubmit={form.onSubmit((values) => {
             handleEditToDo(values);

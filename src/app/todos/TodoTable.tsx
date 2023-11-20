@@ -29,7 +29,8 @@ const TodoTable = ({ tableData }) => {
   };
 
   const handleOnEdit = async (updatedToDo) => {
-    console.log(updatedToDo);
+    const result = await editToDo(updatedToDo._id);
+    console.log(result);
   };
 
   const handleEditToDo = async (el) => {

@@ -21,7 +21,7 @@ export const deleteToDo = async (id: string) => {
   return result;
 };
 
-export const editToDo = async (id: string) => {
-  const result = await axios.put(`${baseURL}/todos/${id}`);
+export const editToDo = async (id: string, updatedData: toDo) => {
+  const result = await axios.put(`${baseURL}/todos/${id}`, updatedData);
   return result;
 };
